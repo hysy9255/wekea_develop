@@ -60,7 +60,7 @@ const deleteItemFromTheCart = async (userId, productId) => {
 const getAllItemSelectedByTheUser = async (userId) => {
   const products = await appDataSource.manager.query(
     `
-    SELECT p.name, p.thumbnailUrl, p.price, p.productCode
+    SELECT p.id, p.name, p.thumbnailUrl, p.price, p.productCode, c.quantity
     FROM products AS p
     INNER JOIN carts AS c
     ON p.id = c.productId
